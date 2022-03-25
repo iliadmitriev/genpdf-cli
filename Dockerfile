@@ -1,6 +1,6 @@
-FROM alpine:3.10 as genpdf-cli-builder
+FROM alpine:3.15 as genpdf-cli-builder
 
-ENV WKHTMLTOX_VERSION=0.12.5
+ENV WKHTMLTOX_VERSION=0.12.6
 ENV REPO=https://github.com/wkhtmltopdf/wkhtmltopdf.git
 
 # Copy patches
@@ -169,7 +169,7 @@ RUN make install              \
 RUN sha256sum /bin/wkhtmltopdf
 
 
-FROM alpine:3.10
+FROM alpine:3.15
 
 RUN apk add --update --no-cache \
     libgcc libstdc++ libx11 glib libxrender libxext libintl \
